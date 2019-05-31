@@ -1,0 +1,100 @@
+{% extends 'boards/base.html' %}
+
+{% block title %}
+  {{ boardk.name }} - {{ block.super }} <!-- block.super for reusing the title name in Master page-->
+{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
+  <li class="breadcrumb-item active">{{ boardk.name }}</li>
+
+{% endblock %}
+
+
+{% block content %}
+<a href="{% url 'new_topic' boardk.pk %}">
+  <!-- dbt in linking it to new_topic page -->
+<input type="button" name="" value="NewTopic"><br><br>
+</a>
+
+
+<table border ="2">
+  <tr>
+    <th>Topic</th>
+    <th>Starter</th>
+    <th>Replies</th>
+    <th> Views</th>
+    <th>Last update</th>
+  </tr>
+{% for t in topicK %}
+    <tr>
+      <td>{{ t.subject }}</td>
+      <td>{{ t.starter.username }}</td>
+      <td>addsa</td>
+      <td>adsa</td>
+      <td>asd</td>
+    </tr>
+
+{% endfor %}
+</table>
+
+{% endblock %}
+
+
+
+<!-- <!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ boardk.name }}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+  <body>
+    <div class="container">
+
+      <ol class="breadcrumb my-4"reversed>
+
+       <li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
+
+       <li class="breadcrumb-item active">{{ boardk.name }}</li>
+ </ol>
+   <div class="container">
+
+
+         <a href="#">
+         <input type="button" name="" value="NewTopic"><br><br>
+         </a>
+
+         <table border ="2">
+           <tr>
+             <th>Topic</th>
+             <th>Starter</th>
+             <th>Replies</th>
+             <th> Views</th>
+             <th>Last update</th>
+           </tr>
+     {% for t in topicK %}
+             <tr>
+               <td>{{ t.subject }}</td>
+               <td>asd </td>
+               <td>addsa</td>
+               <td>adsa</td>
+               <td>asd</td>
+             </tr>
+
+     {% endfor %}
+
+
+         </table>
+       </div>
+
+
+
+
+
+
+    </div>
+
+  </body>
+</html> -->
